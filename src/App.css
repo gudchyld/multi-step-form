@@ -1,0 +1,17 @@
+.button-holder button{
+  border-radius: 50%;
+  border: 1px solid white ;
+  background: none;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.form-holder span{
+  font-size: 0.86rem;
+  color: rgb(90, 90, 90);
+}
+
+.form-holder input{
+  font-size: 0.9rem;
+  border-radius: 5px;
+}

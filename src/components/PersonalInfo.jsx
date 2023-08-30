@@ -1,6 +1,6 @@
 function PersonalInfo() {
   return (
-    <div className="w-[80vw] bg-gray-50 rounded-xl px-6 pt-9 pb-12">
+    <div className="w-[80vw] bg-white rounded-xl px-6 pt-9 pb-12">
       <div className="text-left">
         <h2 className="text-2xl font-semibold text-gray-700 pb-1.5">
           Personal Info

@@ -1,8 +1,14 @@
-import iconArcade from "../assets/images/icon-arcade.svg";
 
-function Plan() {
+import ToggleButton from "./ToggleButton";
+import { useState } from "react";
+import { RadioGroup } from "@headlessui/react";
+
+function Plan({ tenureMonthly, handleToggleClick, apiData, selectedPlan, setSelectedPlan }) {
+ 
+  
+
   return (
-    <div className="w-[80vw] bg-gray-50 rounded-xl px-6 pt-9 pb-12">
+    <div className="w-[80vw] bg-white rounded-xl px-6 pt-9 pb-12">
       <div className="text-left">
         <h2 className="text-2xl font-semibold text-gray-700 pb-1.5">
           Select your plan
@@ -11,44 +17,74 @@ function Plan() {
           You have the option of monthly or yearly billing.
         </p>
       </div>
+
       {/* begin plan holder */}
-      <div className="plan-holder mt-6 flex flex-col gap-3">
-        {/* Arcade */}
-        <div className="flex items-center border-2 p-4 rounded-lg gap-4">
-          <span>
-            <img src={iconArcade} alt="" />
-          </span>
-          <div className="flex flex-col items-start">
-            <h3 className="font-medium">Arcade</h3>
-            <p className="text-gray-400 text-sm">$9/mo</p>
+      <div className="plan-holder mt-6 flex flex-col gap-8">
+        <RadioGroup value={selectedPlan} onChange={setSelectedPlan}>
+          <RadioGroup.Label className="sr-only">Server size</RadioGroup.Label>
+          <div className="space-y-4">
+            {apiData.plans.map((plan) => (
+              <RadioGroup.Option
+                key={plan.name}
+                value={plan}
+                className={({ active, checked }) =>
+                  `${
+                    active
+                      ? "ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-sky-300"
+                      : ""
+                  }
+                  ${
+                    checked ? "bg-sky-900 bg-opacity-75 text-white" : "bg-white"
+                  }
+                    relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none`
+                }
+              >
+                {({ active, checked }) => (
+                  <>
+                    <div className="flex items-center  p rounded-lg gap-4">
+                      <span>
+                        <img src={plan.image} alt="" />
+                      </span>
+                      <div className="flex flex-col items-start">
+                        <RadioGroup.Label
+                          as="p"
+                          className={`font-medium  ${
+                            checked ? "text-white" : "text-gray-900"
+                          }`}
+                        >
+                          {plan.name}
+                        </RadioGroup.Label>
+                        <RadioGroup.Description
+                          as="span"
+                          className={`inline ${
+                            checked ? "text-sky-100" : "text-gray-500"
+                          }`}
+                        >
+                          <span className="text-sm">
+                            ${plan.price}/{plan.tenure}
+                          </span>
+                          
+                        </RadioGroup.Description>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </RadioGroup.Option>
+            ))}
           </div>
-        </div>
-        {/* Advanced */}
-        <div className="flex items-center border-2 p-4 rounded-lg gap-4">
-          <span>
-            <img src={iconArcade} alt="" />
-          </span>
-          <div className="flex flex-col items-start">
-            <h3 className="font-medium">Advanced</h3>
-            <p className="text-gray-400 text-sm">$9/mo</p>
-          </div>
-        </div>
-        {/* Pro */}
-        <div className="flex items-center border-2 p-4 rounded-lg gap-4">
-          <span>
-            <img src={iconArcade} alt="" />
-          </span>
-          <div className="flex flex-col items-start">
-            <h3 className="font-medium">Pro</h3>
-            <p className="text-gray-400 text-sm">$9/mo</p>
-          </div>
-        </div>
+        </RadioGroup>
       </div>
+
       {/* begin monthly or yearly toggle */}
-      <div className="flex justify-center mt-6 gap-4 text-sm bg-slate-100 text-gray-500 p-4 rounded-lg">
+      <div className="flex justify-center mt-6 gap-4 text-sm bg-slate-100  p-4 rounded-lg">
         <p>Monthly</p>
-        <div>dot</div>
-        <p>Yearly</p>
+        {
+          <ToggleButton
+            tenureMonthly={tenureMonthly}
+            handleToggleClick={handleToggleClick}
+          />
+        }
+        <p className="text-gray-500">Yearly</p>
       </div>
     </div>
   );

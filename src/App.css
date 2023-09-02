@@ -1,8 +1,8 @@
-.button-holder button{
+.button-holder > button{
   border-radius: 50%;
   border: 1px solid white ;
-  background: none;
-  color: white;
+  /* background: transparent; */
+  /* color: white; */
   font-size: 0.9rem;
 }
 
@@ -14,4 +14,17 @@
 .form-holder input{
   font-size: 0.9rem;
   border-radius: 5px;
+}
+
+.background{
+  background-image: url('./assets/images/bg-sidebar-mobile.svg');
+  
+}
+
+@media (min-width: 768px) {
+  .background{
+    background-image: url('./assets/images/bg-sidebar-desktop.svg');
+    background-size: contain;
+  }
+  
 }

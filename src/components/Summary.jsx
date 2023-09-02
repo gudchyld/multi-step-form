@@ -1,6 +1,6 @@
 import React from "react";
 
-function Summary({ selectedPlan, selectedAddOnObj }) {
+function Summary({ selectedPlan, selectedAddOnObj, handleChangeButton }) {
 
     function getTotal(){
         let sum = +(selectedPlan.price);
@@ -14,7 +14,7 @@ function Summary({ selectedPlan, selectedAddOnObj }) {
 
   return (
     <>
-      <div className="w-[80vw] bg-white rounded-xl px-6 pt-9 pb-12">
+      <div className="w-full md:w-full bg-white rounded-xl px-6 pt-9 pb-12">
         <div className="text-left">
           <h2 className="text-2xl font-semibold text-gray-700 pb-1.5">
             Finishing Up
@@ -34,7 +34,10 @@ function Summary({ selectedPlan, selectedAddOnObj }) {
                   {selectedPlan.name}&nbsp;
                   {selectedPlan.tenure === "mo" ? "(Monthly)" : "(Yearly)"}
                 </h2>
-                <a className="text-sm text-gray-400" href="#">
+                <a className="text-sm text-gray-400" 
+                href="#"
+                onClick={handleChangeButton}
+                >
                   Change
                 </a>
               </div>

@@ -51,7 +51,7 @@ function AddOn({
     <>
       <div className="w-full md:w-full bg-white rounded-xl px-6 pt-9 pb-12">
         <div className="text-left">
-          <h2 className="text-2xl font-semibold text-gray-700 pb-1.5">
+          <h2 className="text-2xl font-semibold text-gray-700 pb-1.5 md:text-3xl md:font-bold text-color">
             Pick add-ons
           </h2>
           <p className="w-[90%] text-gray-400">

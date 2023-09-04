@@ -10,7 +10,7 @@ function Plan({ tenureMonthly, handleToggleClick, apiData, selectedPlan, setSele
   return (
     <div className="w-full md:w-full bg-white rounded-xl px-6 pt-9 pb-12">
       <div className="text-left">
-        <h2 className="text-2xl font-semibold text-gray-700 pb-1.5">
+        <h2 className="text-2xl font-semibold text-gray-700 pb-1.5 md:text-3xl md:font-bold text-color">
           Select your plan
         </h2>
         <p className="w-[90%] text-gray-400">
@@ -19,10 +19,10 @@ function Plan({ tenureMonthly, handleToggleClick, apiData, selectedPlan, setSele
       </div>
 
       {/* begin plan holder */}
-      <div className="plan-holder mt-6 flex flex-col gap-8">
-        <RadioGroup value={selectedPlan} onChange={setSelectedPlan}>
+      <div className="plan-holder mt-6 flex flex-col gap-8 ">
+        <RadioGroup value={selectedPlan} onChange={setSelectedPlan} className={``} >
           <RadioGroup.Label className="sr-only">Server size</RadioGroup.Label>
-          <div className="space-y-4">
+          <div className="space-y-4 md:flex md:justify-between md:space-x-6">
             {apiData.plans.map((plan) => (
               <RadioGroup.Option
                 key={plan.name}
@@ -36,12 +36,12 @@ function Plan({ tenureMonthly, handleToggleClick, apiData, selectedPlan, setSele
                   ${
                     checked ? "bg-sky-900 bg-opacity-75 text-white" : "bg-white"
                   }
-                    relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none`
+                    flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none md:flex-1 md:h-[200px]`
                 }
               >
                 {({ active, checked }) => (
                   <>
-                    <div className="flex items-center  p rounded-lg gap-4">
+                    <div className="flex items-center md:flex-col md:gap-12 md:items-start rounded-lg gap-4 md:py-4">
                       <span>
                         <img src={plan.image} alt="" />
                       </span>
@@ -56,7 +56,7 @@ function Plan({ tenureMonthly, handleToggleClick, apiData, selectedPlan, setSele
                         </RadioGroup.Label>
                         <RadioGroup.Description
                           as="span"
-                          className={`inline ${
+                          className={` ${
                             checked ? "text-sky-100" : "text-gray-500"
                           }`}
                         >

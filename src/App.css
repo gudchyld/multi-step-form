@@ -1,9 +1,19 @@
-.button-holder > button{
+.button-holder  button{
   border-radius: 50%;
   border: 1px solid white ;
   /* background: transparent; */
   /* color: white; */
   font-size: 0.9rem;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.text-color{
+  color: rgb(23, 37, 84);
 }
 
 .form-holder span{
@@ -18,7 +28,7 @@
 
 .background{
   background-image: url('./assets/images/bg-sidebar-mobile.svg');
-  
+
 }
 
 @media (min-width: 768px) {

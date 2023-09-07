@@ -4,7 +4,7 @@ import PersonalInfo from "./components/PersonalInfo";
 import AddOn from "./components/AddOn";
 import Summary from "./components/Summary";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import iconArcade from "./assets/images/icon-arcade.svg";
 import iconAdvanced from "./assets/images/icon-advanced.svg";
 import iconPro from "./assets/images/icon-pro.svg";
@@ -66,13 +66,19 @@ function App() {
   //state for plan.jsx
   const [selectedPlan, setSelectedPlan] = useState(data.plans[0]);
   //state for AddOn.jsx
-  const [selectedAddOn, setSelectedAddOn] = useState([]);
-  const [selectedAddOnObj, setSelectedAddOnObj] = useState([]);
+  const [selectedAddOn, setSelectedAddOn] = useState([formData.addOns[0].name]);
+
+  const [selectedAddOnObj, setSelectedAddOnObj] = useState(getAddOnObj);
+
+  console.log("Normal addon", selectedAddOn);
+  console.log("Adjusted Adon", selectedAddOnObj);
 
   // PersonalInfo form Validations
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+
+  // use error state to show error infos
   const [error, setError] = useState({});
 
   const componentsArray = [
@@ -147,6 +153,28 @@ function App() {
   //     console.log('Form is invalid');
   //   }
   // };
+
+  // function to remap checkbox details to obj
+  // logic fixed
+  function getAddOnObj() {
+    let newDetails = selectedAddOn.map((item) => {
+      for (let addon of formData.addOns) {
+        if (addon.name === item) {
+          return {
+            name: addon.name,
+            price: addon.price,
+            tenure: addon.tenure,
+          };
+        }
+      }
+    });
+    return newDetails;
+  }
+
+  // useEffect to remap checkbox details to obj
+  useEffect(() => {
+    setSelectedAddOnObj(getAddOnObj());
+  }, [selectedAddOn]);
 
   // function to handle monthly/yearly toggle functionality
   function handleToggleClick() {

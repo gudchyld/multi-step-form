@@ -1,14 +1,12 @@
-import { useState } from "react";
+// import { useState } from "react";
 
 function AddOn({
   apiData,
   selectedAddOn,
-  setSelectedAddOn,
-  selectedAddOnObj,
-  setSelectedAddOnObj,
+  setSelectedAddOn,  
 }) {
-  console.log("your selections", selectedAddOn);
-  console.log("your object choice", selectedAddOnObj);
+  // console.log("your selections", selectedAddOn);
+  // console.log("your object choice", selectedAddOnObj);
 
   // function convertAddOnToObj() {
   //   selectedAddOn.forEach((addOn) => {
@@ -24,8 +22,8 @@ function AddOn({
   function handleCheckboxChange(event) {
     const addOnValue = event.target.value;
 
-    //remap returned string to corresponding object
-    let foundYou = apiData.addOns.find((item) => item.name === addOnValue);
+    // //remap returned string to corresponding object
+    // let foundYou = apiData.addOns.find((item) => item.name === addOnValue);
 
     if (selectedAddOn.includes(addOnValue)) {
       //if unchecked value is present, remove it
@@ -35,16 +33,16 @@ function AddOn({
       setSelectedAddOn([...selectedAddOn, addOnValue]);
     }
 
-    // essentially does the same thinng as above but with the found object
-    if (selectedAddOnObj.includes(foundYou)) {
-      //if unchecked value is present, remove it
-      setSelectedAddOnObj(
-        selectedAddOnObj.filter((value) => value !== foundYou)
-      );
-    } else {
-      //else add it
-      setSelectedAddOnObj([...selectedAddOnObj, foundYou]);
-    }
+    // // essentially does the same thinng as above but with the found object
+    // if (selectedAddOnObj.includes(foundYou)) {
+    //   //if unchecked value is present, remove it
+    //   setSelectedAddOnObj(
+    //     selectedAddOnObj.filter((value) => value !== foundYou)
+    //   );
+    // } else {
+    //   //else add it
+    //   setSelectedAddOnObj([...selectedAddOnObj, foundYou]);
+    // }
   }
 
   return (

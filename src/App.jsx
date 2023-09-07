@@ -11,7 +11,7 @@ import iconPro from "./assets/images/icon-pro.svg";
 import Final from "./components/Final";
 
 function App() {
-  const [currentIndex, setCurrentIndex] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [tenureMonthly, setTenureMonthly] = useState(true);
 
   // formData array
@@ -62,8 +62,6 @@ function App() {
     ],
   };
 
-  console.log('formData tenure value', formData.plans[0].tenure)
-
   const [data, setData] = useState(formData);
   //state for plan.jsx
   const [selectedPlan, setSelectedPlan] = useState(data.plans[0]);
@@ -71,9 +69,7 @@ function App() {
   const [selectedAddOn, setSelectedAddOn] = useState([formData.addOns[0].name]);
 
   const [selectedAddOnObj, setSelectedAddOnObj] = useState(getAddOnObj);
-
-  console.log("Normal addon", selectedAddOn);
-  console.log("Adjusted Adon", selectedAddOnObj);
+  const [isNextButtonDisabled, setIsNextButtonDisabled] = useState(false);
 
   // PersonalInfo form Validations
   const [name, setName] = useState("");
@@ -120,6 +116,8 @@ function App() {
     <Final key={5} />,
   ];
 
+  //this will set the next button to disabled when no addon is selected
+
   //  function to handle form validation
   const validateForm = () => {
     let errors = {};
@@ -145,17 +143,6 @@ function App() {
     return isValid;
   };
 
-  //  const handleFormSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   if (validateForm()) {
-  //     // Form is valid,
-  //     console.log('Form is valid');
-  //   } else {
-  //     console.log('Form is invalid');
-  //   }
-  // };
-
   // function to remap checkbox details to obj
   // logic fixed
   function getAddOnObj() {
@@ -176,13 +163,18 @@ function App() {
   // useEffect to remap checkbox details to obj
   useEffect(() => {
     setSelectedAddOnObj(getAddOnObj());
-  }, [selectedAddOn]);
+    setData(formData);
+    if (currentIndex === 2 && selectedAddOn.length < 1) {
+      setIsNextButtonDisabled(true);
+    } else {
+      setIsNextButtonDisabled(false);
+    }
+  }, [selectedAddOn, tenureMonthly]);
 
   // function to handle monthly/yearly toggle functionality
   function handleToggleClick() {
     console.log("toggle fired!!");
     setTenureMonthly(!tenureMonthly);
-    setData(formData);
   }
 
   function handleBackButton() {
@@ -306,6 +298,7 @@ function App() {
               } text-white ml-auto outline-none focus:outline-none hover:outline-none hover:border-none border-none
             `}
               onClick={() => handleNextButton()}
+              disabled={isNextButtonDisabled}
             >
               {currentIndex === 3 ? `Confirm` : `Next Step`}
             </button>

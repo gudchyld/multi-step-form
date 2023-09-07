@@ -1,4 +1,16 @@
- <div className="plan-holder mt-6 flex flex-col gap-3">
+function handleNextButton() {
+  if (validateForm()) {
+    if (currentIndex < componentsArray.length - 1) {
+      setCurrentIndex((prevIndex) => prevIndex + 1);
+    }
+  } else {
+    console.log("Form is invalid");
+  }
+}
+
+
+
+<div className="plan-holder mt-6 flex flex-col gap-3">
         {/* Arcade */}
         <div className="flex items-center border-2 p-4 rounded-lg gap-4">
           <span>

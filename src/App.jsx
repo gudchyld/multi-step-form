@@ -11,8 +11,8 @@ import iconPro from "./assets/images/icon-pro.svg";
 import Final from "./components/Final";
 
 function App() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [tenureMonthly, setTenureMonthly] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(1);
+  const [tenureMonthly, setTenureMonthly] = useState(true);
 
   // formData array
   const formData = {
@@ -61,6 +61,8 @@ function App() {
       },
     ],
   };
+
+  console.log('formData tenure value', formData.plans[0].tenure)
 
   const [data, setData] = useState(formData);
   //state for plan.jsx
@@ -178,7 +180,7 @@ function App() {
 
   // function to handle monthly/yearly toggle functionality
   function handleToggleClick() {
-    console.log("togle fired!!");
+    console.log("toggle fired!!");
     setTenureMonthly(!tenureMonthly);
     setData(formData);
   }

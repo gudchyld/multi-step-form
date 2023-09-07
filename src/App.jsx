@@ -88,6 +88,7 @@ function App() {
       setEmail={setEmail}
       phone={phone}
       setPhone={setPhone}
+      error={error}
     />,
     <Plan
       key={2}
@@ -187,6 +188,7 @@ function App() {
         setCurrentIndex((prevIndex) => prevIndex + 1);
       }
     } else {
+      validateForm();
       console.log("Form is invalid");
     }
   }

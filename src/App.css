@@ -16,10 +16,18 @@
   color: rgb(23, 37, 84);
 }
 
-.form-holder span{
+.basic-span{
   font-size: 0.86rem;
   color: rgb(90, 90, 90);
 }
+
+.error-span{
+  color:indianred;
+  font-size: x-small;
+}
+/* .form-holder span{
+  
+} */
 
 .form-holder input{
   font-size: 0.9rem;

@@ -1,4 +1,12 @@
-function PersonalInfo({ name, setName, email, setEmail, phone, setPhone }) {
+function PersonalInfo({
+  name,
+  setName,
+  email,
+  setEmail,
+  phone,
+  setPhone,
+  error,
+}) {
   return (
     <div className="w-full md:w-full bg-white rounded-xl px-6 pt-9 pb-12">
       <div className="text-left">
@@ -12,7 +20,10 @@ function PersonalInfo({ name, setName, email, setEmail, phone, setPhone }) {
       <div className="form-holder mt-5">
         <form action="" className="flex flex-col gap-3">
           <div className="flex flex-col items-start">
-            <span className="text-color">Name</span>
+            <div className="w-full flex items-center justify-between pr-1">
+              <span className="basic-span text-color">Name</span>
+              {error && <span className="error-span">{error.name}</span>}
+            </div>
             <input
               className="bg-transparent border-2 w-full py-2 px-3"
               type="name"
@@ -24,7 +35,10 @@ function PersonalInfo({ name, setName, email, setEmail, phone, setPhone }) {
           </div>
 
           <div className="flex flex-col items-start">
-            <span className="text-color">Email Address</span>
+          <div className="w-full flex items-center justify-between pr-1">
+              <span className="basic-span text-color">Email Address</span>
+              {error && <span className="error-span">{error.email}</span>}
+            </div>
             <input
               className="bg-transparent border-2 w-full py-2 px-3"
               type="email"
@@ -36,7 +50,10 @@ function PersonalInfo({ name, setName, email, setEmail, phone, setPhone }) {
           </div>
 
           <div className="flex flex-col items-start">
-            <span className="text-color">Phone Number</span>
+          <div className="w-full flex items-center justify-between pr-1">
+              <span className="basic-span text-color">Phone Number</span>
+              {error && <span className="error-span">{error.phone}</span>}
+            </div>
             <input
               className="bg-transparent border-2 w-full py-2 px-3"
               type="text"

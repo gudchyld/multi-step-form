@@ -11,7 +11,7 @@ import iconPro from "./assets/images/icon-pro.svg";
 import Final from "./components/Final";
 
 function App() {
-  const [currentIndex, setCurrentIndex] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [tenureMonthly, setTenureMonthly] = useState(true);
 
   // formData array

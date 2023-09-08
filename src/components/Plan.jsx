@@ -1,12 +1,16 @@
-
 import ToggleButton from "./ToggleButton";
 import { useState } from "react";
 import { RadioGroup } from "@headlessui/react";
 
-function Plan({ tenureMonthly, handleToggleClick, apiData, selectedPlan, setSelectedPlan }) {
- 
-  console.log('tenure value in plan component', apiData.plans[0].tenure)
-  console.log('tenure monthly value', tenureMonthly)
+function Plan({
+  tenureMonthly,
+  handleToggleClick,
+  apiData,
+  selectedPlan,
+  setSelectedPlan,
+}) {
+  console.log("tenure value in plan component", apiData.plans[0].tenure);
+  console.log("tenure monthly value", tenureMonthly);
 
   return (
     <div className="w-full md:w-full bg-white rounded-xl px-6 pt-9 pb-12">
@@ -21,7 +25,11 @@ function Plan({ tenureMonthly, handleToggleClick, apiData, selectedPlan, setSele
 
       {/* begin plan holder */}
       <div className="plan-holder mt-6 flex flex-col gap-8 ">
-        <RadioGroup value={selectedPlan} onChange={setSelectedPlan} className={``} >
+        <RadioGroup
+          value={selectedPlan}
+          onChange={setSelectedPlan}
+          className={``}
+        >
           <RadioGroup.Label className="sr-only">Server size</RadioGroup.Label>
           <div className="space-y-4 md:flex md:justify-between md:space-x-6">
             {apiData.plans.map((plan) => (
@@ -42,11 +50,11 @@ function Plan({ tenureMonthly, handleToggleClick, apiData, selectedPlan, setSele
               >
                 {({ active, checked }) => (
                   <>
-                    <div className="flex items-center md:flex-col md:gap-12 md:items-start rounded-lg gap-4 md:py-4">
+                    <div className="flex items-center md:flex-col md:gap-12 md:items-start rounded-lg gap-4 md:py-4 ">
                       <span>
                         <img src={plan.image} alt="" />
                       </span>
-                      <div className="flex flex-col items-start">
+                      <div className="flex flex-col items-start ">
                         <RadioGroup.Label
                           as="p"
                           className={`font-medium  ${
@@ -59,12 +67,16 @@ function Plan({ tenureMonthly, handleToggleClick, apiData, selectedPlan, setSele
                           as="span"
                           className={` ${
                             checked ? "text-sky-100" : "text-gray-500"
-                          }`}
+                          } `}
                         >
                           <span className="text-sm">
                             ${plan.price}/{plan.tenure}
                           </span>
-                          
+                          {!tenureMonthly && (
+                            <span className="text-sm font-semibold block pt-1 ">
+                              2 Months Free
+                            </span>
+                          )}
                         </RadioGroup.Description>
                       </div>
                     </div>

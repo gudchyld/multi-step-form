@@ -11,8 +11,8 @@ import iconPro from "./assets/images/icon-pro.svg";
 import Final from "./components/Final";
 
 function App() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [tenureMonthly, setTenureMonthly] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(1);
+  const [tenureMonthly, setTenureMonthly] = useState(false);
 
   // formData array
   const formData = {
@@ -199,11 +199,11 @@ function App() {
 
   return (
     <>
-      <div className="h-[100vh] flex flex-col justify-between bg-sky-100 md:bg-white md:grid md:grid-cols-12 md:grid-rows-12">
+      <div className="h-[100vh] grid grid-rows-12 grid-cols-1  bg-sky-100 md:bg-white md:grid md:grid-cols-12 md:grid-rows-12 overflow-scroll">
         {/* navigation */}
-        <div className="background w-[100%] h-1/4 md:h-[95%] md:col-span-3 md:row-[1/13] bg-no-repeat bg-cover pb-14 md:shrink-0 md:m-4 md:rounded-lg">
+        <div className="background w-[100%]  md:h-[95%] md:col-span-3 md:row-[1/13] bg-no-repeat bg-cover pb-14 md:shrink-0 md:m-4 md:rounded-lg row-span-3 row-start-1 col-start-1 col-end-2 self-start">
           {/* top navigation buttons */}
-          <div className="button-holder flex justify-center py-10 gap-3 md:flex-col md:pl-10 md:pt-10 md:mt-10 md:ml-2 md:gap-6">
+          <div className="button-holder flex justify-center py-10 gap-3 md:flex-col md:pl-10 md:pt-10 md:mt-10 md:ml-2 md:gap-6 mb-8">
             <div className="md:flex md:gap-3">
               <button
                 className={`${
@@ -273,7 +273,7 @@ function App() {
         {/* Second section on larger screen */}
 
         {/* Components */}
-        <div className="w-[80vw] mx-auto absolute top-[150px] left-0 right-0 md:static md:m-auto md:w-full md:col-start-5 md:col-span-7 md:row-[2/8] ">
+        <div className="w-[80vw] mx-auto md:static md:m-auto md:w-full md:col-start-5 md:col-span-7 md:row-[2/8] row-span-6 row-start-2 self-start col-start-1 col-end-2 mt-10">
           {componentsArray[currentIndex]}
         </div>
         {/* bottom toggle buttons */}
@@ -282,7 +282,7 @@ function App() {
             currentIndex === 4
               ? "hidden"
               : "bg-gray-50 md:bg-white w-full p-4 flex justify-center"
-          } md:row-[11/12] md:col-start-5 md:col-span-7 md:max-h-[80px]`}
+          } md:row-[11/12] md:col-start-5 md:col-span-7 md:max-h-[5rem] z-10 mt-6 row-span-2 row-start-10 self-end `}
         >
           <div className="w-[80vw] flex justify-between">
             <button

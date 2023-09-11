@@ -11,8 +11,8 @@ import iconPro from "./assets/images/icon-pro.svg";
 import Final from "./components/Final";
 
 function App() {
-  const [currentIndex, setCurrentIndex] = useState(1);
-  const [tenureMonthly, setTenureMonthly] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [tenureMonthly, setTenureMonthly] = useState(true);
 
   // formData array
   const formData = {
@@ -174,7 +174,6 @@ function App() {
 
   // function to handle monthly/yearly toggle functionality
   function handleToggleClick() {
-    console.log("toggle fired!!");
     setTenureMonthly(!tenureMonthly);
   }
 
@@ -189,7 +188,6 @@ function App() {
       }
     } else {
       validateForm();
-      console.log("Form is invalid");
     }
   }
 
@@ -214,7 +212,7 @@ function App() {
               >
                 1
               </button>
-              <div className="hidden md:flex md:flex-col">
+              <div className="hidden md:flex md:flex-col text-slate-100">
                 <p className="md:font-light md:text-sm">STEP 1</p>
                 <p className="md:font-bold md:text-sm">YOUR INFO</p>
               </div>
@@ -230,7 +228,7 @@ function App() {
               >
                 2
               </button>
-              <div className="hidden md:flex md:flex-col">
+              <div className="hidden md:flex md:flex-col  text-slate-100">
                 <p className="md:font-light md:text-sm">STEP 2</p>
                 <p className="md:font-bold md:text-sm">SELECT PLANS</p>
               </div>
@@ -246,7 +244,7 @@ function App() {
               >
                 3
               </button>
-              <div className="hidden md:flex md:flex-col">
+              <div className="hidden md:flex md:flex-col  text-slate-100">
                 <p className="md:font-light md:text-sm">STEP 3</p>
                 <p className="md:font-bold md:text-sm">ADD-ONS</p>
               </div>
@@ -262,7 +260,7 @@ function App() {
               >
                 4
               </button>
-              <div className="hidden md:flex md:flex-col">
+              <div className="hidden md:flex md:flex-col  text-slate-100">
                 <p className="md:font-light md:text-sm">STEP 4</p>
                 <p className="md:font-bold md:text-sm">SUMMARY</p>
               </div>
@@ -288,7 +286,7 @@ function App() {
             <button
               className={`${
                 currentIndex === 0 ? "hidden" : "visible"
-              }  px-0 outline-none focus:outline-none hover:outline-none hover:border-none border-none text-gray-400`}
+              }  px-0 outline-none focus:outline-none hover:outline-none hover:border-none border-none text-gray-500 hover:text-gray-900`}
               onClick={() => handleBackButton()}
             >
               Go Back
@@ -297,7 +295,7 @@ function App() {
             <button
               className={` ${
                 currentIndex === 3 ? "bg-blue-500" : " bg-blue-950"
-              } text-white ml-auto outline-none focus:outline-none hover:outline-none hover:border-none border-none
+              } text-white ml-auto outline-none focus:outline-none hover:outline-none hover:border-none border-none py-2 px-4 rounded-lg
             `}
               onClick={() => handleNextButton()}
               disabled={isNextButtonDisabled}

@@ -9,9 +9,7 @@ function Plan({
   selectedPlan,
   setSelectedPlan,
 }) {
-  console.log("tenure value in plan component", apiData.plans[0].tenure);
-  console.log("tenure monthly value", tenureMonthly);
-
+  
   return (
     <div className="w-full md:w-full bg-white rounded-xl px-6 pt-9 pb-12">
       <div className="text-left">
@@ -45,7 +43,7 @@ function Plan({
                   ${
                     checked ? "bg-sky-900 bg-opacity-75 text-white" : "bg-white"
                   }
-                    flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none md:flex-1 md:h-[200px]`
+                    flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none md:flex-1 `
                 }
               >
                 {({ active, checked }) => (

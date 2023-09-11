@@ -64,7 +64,7 @@ and that no steps was left empty while filling and ticking off the whole form
 
 ### What I learned
 
-I learnt how to conditionally style elements in react using tailwind
+- I learnt how to conditionally style elements in react using tailwind
 
 ```
     <button
@@ -80,6 +80,11 @@ I learnt how to conditionally style elements in react using tailwind
 
 if the current index matches a components position in an array, the above button is going to be
 styled differently
+
+- Learnt how to properly write out a readme file to give insights as much as possible
+
+- Learnt how to overlap elements using css grid by placing the elements on the same grid row
+  or on the same grid column
 
 ### Continued development
 

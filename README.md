@@ -39,8 +39,8 @@ Users should be able to:
 
 ### Screenshot
 
-![](../multi-step-form/screenshots/desktop%20view.png)
-![](../multi-step-form/screenshots/mobile%20view.png)
+![](./screenshots/desktop%20view.png)
+![](./screenshots/mobile%20view.png)
 
 ## My process
 

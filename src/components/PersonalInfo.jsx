@@ -18,7 +18,7 @@ function PersonalInfo({
         </p>
       </div>
       <div className="form-holder mt-5">
-        <form action="" className="flex flex-col gap-3">
+        <form className="flex flex-col gap-3">
           <div className="flex flex-col items-start">
             <div className="w-full flex items-center justify-between pr-1">
               <span className="basic-span text-color">Name</span>
@@ -26,7 +26,7 @@ function PersonalInfo({
             </div>
             <input
               className="bg-transparent border-2 w-full py-2 px-3"
-              type="name"
+              type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="e.g Suz eth"

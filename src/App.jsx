@@ -197,7 +197,7 @@ function App() {
 
   return (
     <>
-      <div className="h-[100vh] grid grid-rows-12 grid-cols-1  bg-sky-100 md:bg-white md:grid md:grid-cols-12 md:grid-rows-12 overflow-scroll">
+      <div className="md:max-w-[61rem] md:max-h-[42rem] md:my-auto md:mx-auto h-[100vh] grid grid-rows-12 grid-cols-1  bg-sky-100 md:bg-white md:grid md:grid-cols-12 md:grid-rows-12 md:shadow-lg rounded-lg overflow-auto md:mt-10">
         {/* navigation */}
         <div className="background w-[100%]  md:h-[95%] md:col-span-3 md:row-[1/13] bg-no-repeat bg-cover pb-14 md:shrink-0 md:m-4 md:rounded-lg row-span-3 row-start-1 col-start-1 col-end-2 self-start">
           {/* top navigation buttons */}
